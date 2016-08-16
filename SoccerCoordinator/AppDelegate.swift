@@ -3,7 +3,7 @@
 //  SoccerCoordinator
 //
 //  Created by Michael De La Cruz on 8/9/16.
-//  Copyright © 2016 Treehouse. All rights reserved.
+//  Copyright © 2016 Michael D. All rights reserved.
 //
 
 import UIKit
