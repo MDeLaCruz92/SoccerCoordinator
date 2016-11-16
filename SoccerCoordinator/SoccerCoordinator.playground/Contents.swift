@@ -34,7 +34,7 @@ func numOfExperienced() -> Int {
     var experienced = 0
     
     for playerDetails in soccerPlayers.values {
-        if playerDetails[1] == true {
+        if playerDetails[1] as! Bool == true {
             experienced += 1
         }
     }
@@ -51,11 +51,11 @@ var numOfInExpPlayers = soccerPlayers.count - numOfExpPlayers
 for (key, value) in soccerPlayers {
     
     if sharks.count < soccerPlayers.count / 3 && sharks.count / 2 <= numOfExpPlayers / 3 && sharks.count / 2 <= numOfInExpPlayers / 3 {
-        sharks[key] = value
+        sharks[key] = value as [AnyObject]?
     } else if dragons.count < soccerPlayers.count / 3 && dragons.count / 2 <= numOfExpPlayers / 3 && dragons.count / 2 <= numOfInExpPlayers / 3 {
-        dragons[key] = value
+        dragons[key] = value as [AnyObject]?
     } else if raptors.count < soccerPlayers.count / 3 && raptors.count / 2 <= numOfExpPlayers / 3 && raptors.count / 2  <= numOfInExpPlayers / 3 {
-        raptors[key] = value
+        raptors[key] = value as [AnyObject]?
     } else {
         print ("Cannot assign \(key, value) ")
     }
@@ -86,7 +86,8 @@ func teamsAverageHeights() -> [Int] {
     var dragonsTotalHeight: Int = 0
     var raptorsTotalHeight: Int = 0
     
-    // The key concept here was not being used, so "(_, value)" would be a valid approach'
+    // The key concept here was not being used, so "(_, value)" would be a valid approach
+    // as!, attempts the downcast and force-unwraps the result as a single compound action
     for (_, value) in sharks {
         sharksTotalHeight += value[0] as! Int
     }
